@@ -7,7 +7,6 @@ import com.lqr.imagepicker.bean.ImageItem;
 import com.superimagepicker.R;
 import com.superimagepicker.utils.GlideUtils;
 
-import java.io.File;
 import java.util.List;
 
 
@@ -56,8 +55,7 @@ public class ImageListAdapter extends BaseRecyclerAdapter<ImageItem> {
             holder.getView(R.id.ll_delete).setVisibility(View.GONE);
             holder.getImageView(R.id.tv_image).setImageResource(R.drawable.ic_addtion);
         } else {
-            GlideUtils.getInstances().attach(holder.getImageView(R.id.tv_image))
-                    .injectImageWithFile(new File(item.path));
+            GlideUtils.loadWithDefult(mContext, item.path, holder.getImageView(R.id.tv_image));
 
             holder.getView(R.id.ll_delete).setVisibility(View.VISIBLE);
             holder.getView(R.id.ll_delete).setOnClickListener(new View.OnClickListener() {

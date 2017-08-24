@@ -243,10 +243,8 @@ public class MainActivity extends AppCompatActivity {
                 mImageItems120.addAll(images);
                 long start = System.currentTimeMillis();
                 if (isCompress) {
-                    GlideUtils.getInstances().attach(mImageView)
-                            .injectImageWithFile(new File(images.get(0).path));
-                    GlideUtils.getInstances().attach(mImageView2)
-                            .injectImageWithFile(new File(images.get(0).path));
+                    GlideUtils.loadWithDefult(this, images.get(0).path, mImageView);
+                    GlideUtils.loadWithDefult(this, images.get(0).path, mImageView2);
                 } else {
                     mImageView.setImageBitmap(BitmapFactory.decodeFile(images.get(0).path));
                     mImageView2.setImageBitmap(BitmapFactory.decodeFile(images.get(0).path));
